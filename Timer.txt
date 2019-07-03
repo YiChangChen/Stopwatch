@@ -1,0 +1,27 @@
+計算function執行時間
+
+//方法一
+System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();//引用stopwatch物件
+sw.Reset();//碼表歸零
+sw.Start();//碼表開始計時
+/**************/
+/**************/
+/***目標程式***/
+/**************/
+/**************/
+sw.Stop();//碼錶停止
+string result = sw.Elapsed.TotalMilliseconds.ToString();
+System.Diagnostics.Debug.WriteLine("SettingAndSaveInvoiceMailLog：" + result);
+
+
+//方法二
+DateTime time_start = DateTime.Now;//計時開始 取得目前時間
+/**************/
+/**************/
+/***目標程式***/
+/**************/
+/**************/
+System.Threading.Thread.Sleep(1000);
+DateTime time_end = DateTime.Now;//計時結束 取得目前時間
+//後面的時間減前面的時間後 轉型成TimeSpan即可印出時間差
+string result = ((TimeSpan)(time_end - time_start)).TotalMilliseconds.ToString();
